@@ -1,0 +1,1 @@
+.stat-card{display:flex;flex-direction:column;justify-content:space-between;gap:var(--space-2);min-height:7.5rem}.stat-label,.stat-detail{color:var(--text-muted);font-size:var(--font-xs)}.stat-value{font:600 var(--font-md) var(--font-mono);color:var(--text)}.stat-card-featured{min-height:10rem;padding:var(--space-5)}.stat-card-featured .stat-value{font-size:var(--font-title)}

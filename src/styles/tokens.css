@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  color-scheme: light;
+  --bg: #F4F2EE;
+  --surface: #FFFFFF;
+  --surface-2: #ECE9E3;
+  --border: #DDD9D0;
+  --text: #1C1B19;
+  --text-muted: #6B675F;
+  --accent: #F2B705;
+  --accent-ink: #1C1B19;
+  --success: #2E7D4F;
+  --warning: #C77700;
+  --danger: #B3261E;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --border-width: 1px;
+  --focus-width: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --font-ui: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-title: clamp(1.5rem, 2.4vw, 2rem);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --sidebar-width: 220px;
+  --sidebar-rail: 72px;
+  --topbar-height: 72px;
+  --content-max: 1440px;
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--accent) 38%, transparent);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #171816;
+  --surface: #222320;
+  --surface-2: #2B2C28;
+  --border: #41423C;
+  --text: #F1EFE8;
+  --text-muted: #B8B4A9;
+  --accent: #F2B705;
+  --accent-ink: #1C1B19;
+  --success: #7CC99A;
+  --warning: #F1B54A;
+  --danger: #F28B82;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.24);
+}

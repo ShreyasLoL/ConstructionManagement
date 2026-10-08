@@ -1,0 +1,6 @@
+import './DataTable.css'
+
+export default function DataTable({ columns, rows, emptyTitle = 'No records yet', emptyText = 'Records will appear here when they are added.', onRowClick }) {
+  if (!rows.length) return <div className="table-empty"><strong>{emptyTitle}</strong><span>{emptyText}</span></div>
+  return <div className="data-table-scroll"><table className="data-table"><thead><tr>{columns.map((column) => <th key={column.key} className={`${column.numeric ? 'numeric' : ''} ${column.className || ''}`}>{column.label}</th>)}</tr></thead><tbody>{rows.map((row) => <tr key={row.id} className={onRowClick ? 'data-table-clickable' : ''} tabIndex={onRowClick ? 0 : undefined} role={onRowClick ? 'link' : undefined} aria-label={onRowClick ? `Open ${row.name || row.title}` : undefined} onClick={(event) => { if (onRowClick && !event.target.closest('a,button')) onRowClick(row) }} onKeyDown={(event) => { if (onRowClick && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); onRowClick(row) } }}>{columns.map((column) => <td key={column.key} className={`${column.numeric ? 'numeric' : ''} ${column.className || ''}`}>{column.render ? column.render(row) : row[column.key]}</td>)}</tr>)}</tbody></table></div>
+}
