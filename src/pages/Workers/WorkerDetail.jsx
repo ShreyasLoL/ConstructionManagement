@@ -12,7 +12,7 @@ const valueOrUnknown = (value, suffix = '') => value === '' || value === undefin
 
 export default function WorkerDetail({ worker, onClose }) {
   const { openForm, removeRecord } = useAppData()
-  const deleteWorker = () => { if (removeRecord('workers', worker)) onClose() }
+  const deleteWorker = async () => { if (await removeRecord('workers', worker)) onClose() }
   return <div className="worker-detail-overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose() }}><section className="worker-detail-dialog" role="dialog" aria-modal="true" aria-labelledby="worker-detail-title"><div className="worker-detail-topbar"><span>Personnel record</span><Button variant="quiet" onClick={onClose} aria-label="Close personnel record"><X aria-hidden="true" /></Button></div>
     <div className="worker-detail-page">
     <PageHeading title={worker.name} description={`${worker.employee_id || 'Employee ID pending'} · Personnel biodata`} action={<div className="worker-profile-actions"><Button variant="secondary" onClick={() => openForm('workers', worker)}><Pencil aria-hidden="true" />Edit record</Button><Button variant="quiet" onClick={deleteWorker} aria-label={`Delete ${worker.name}`}><Trash2 aria-hidden="true" />Delete</Button></div>} />

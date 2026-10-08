@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { ArrowUpRight, FileText, Plus, Search } from 'lucide-react'
 import { useAppData } from '../../context/useAppData.js'
 import PageHeading from '../../components/PageHeading.jsx'
@@ -11,7 +12,14 @@ import './Workers.css'
 export default function Workers() {
   const { data, openForm } = useAppData()
   const [query, setQuery] = useState('')
-  const [selectedWorkerId, setSelectedWorkerId] = useState(null)
+  const [searchParams, setSearchParams] = useSearchParams()
+  const selectedWorkerId = searchParams.get('worker')
+  const setSelectedWorkerId = (id) => {
+    const next = new URLSearchParams(searchParams)
+    if (id) next.set('worker', id)
+    else next.delete('worker')
+    setSearchParams(next, { replace: true })
+  }
   const workers = useMemo(() => data.workers.filter((worker) => `${worker.name} ${worker.employee_id} ${worker.role} ${worker.project}`.toLowerCase().includes(query.toLowerCase().trim())), [data.workers, query])
   const selectedWorker = data.workers.find((worker) => String(worker.id) === String(selectedWorkerId))
   return <div className="workers-page"><PageHeading title="Workers" description="Personnel records, work notes, and project assignments." action={<Button onClick={() => openForm('workers')}><Plus aria-hidden="true" />Add worker</Button>} />

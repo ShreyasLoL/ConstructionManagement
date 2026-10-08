@@ -15,10 +15,6 @@ export const initialData = {
   materials: [],
   expenses: [],
   tasks: [],
-  activities: [
-    { id: 1, text: 'Steel delivery recorded', project: 'Riverside Residences', time: '12 min ago', color: 'orange' },
-    { id: 2, text: 'Slab inspection passed', project: 'Oakwood Community Center', time: '1 hour ago', color: 'green' },
-    { id: 3, text: 'Task assigned to Neha Kulkarni', project: 'Greenfield Office Park', time: '3 hours ago', color: 'blue' },
-    { id: 4, text: 'Weekly payroll expense added', project: 'Riverside Residences', time: 'Yesterday', color: 'purple' },
-  ],
+  activities: [],
+  settings: null
 }

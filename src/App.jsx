@@ -2,6 +2,8 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout/Layout.jsx'
 import { AppDataProvider } from './context/AppData.jsx'
 import PageSkeleton from './components/ui/PageSkeleton.jsx'
+import AuthPage from './components/AuthPage.jsx'
+import { useAppData } from './context/useAppData.js'
 
 const router = createBrowserRouter([
   { path: '/', element: <Layout />, children: [
@@ -17,6 +19,13 @@ const router = createBrowserRouter([
   ] },
 ])
 
+function AppContent() {
+  const { user, authLoading } = useAppData()
+  if (authLoading) return <PageSkeleton />
+  if (!user) return <AuthPage />
+  return <RouterProvider router={router} fallbackElement={<PageSkeleton />} />
+}
+
 export default function App() {
-  return <AppDataProvider><RouterProvider router={router} fallbackElement={<PageSkeleton />} /></AppDataProvider>
+  return <AppDataProvider><AppContent /></AppDataProvider>
 }
