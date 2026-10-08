@@ -1,1 +1,14 @@
-*{box-sizing:border-box}html{min-width:20rem;background:var(--bg);color:var(--text);font-family:var(--font-ui);font-size:var(--font-md);font-synthesis:none;text-rendering:optimizeLegibility}body{min-width:20rem;min-height:100vh;margin:0;background:var(--bg);color:var(--text)}button,input,select{font:inherit}button,a,select{touch-action:manipulation}a{color:inherit}svg{width:1.125rem;height:1.125rem;flex:none}.numeric,.money{font-family:var(--font-mono);font-variant-numeric:tabular-nums}.chart-tooltip{padding:var(--space-3);border:var(--border-width) solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);box-shadow:var(--shadow-sm)}.chart-tooltip p{margin:0 0 var(--space-2);font-size:var(--font-xs)}.chart-tooltip div{display:flex;justify-content:space-between;gap:var(--space-4);font-size:var(--font-xs)}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto;animation-duration:.01ms;animation-iteration-count:1;transition-duration:.01ms}}
+*{box-sizing:border-box}
+html{min-width:20rem;background:var(--bg);color:var(--text);font-family:var(--font-ui);font-size:var(--font-md);font-synthesis:none;text-rendering:optimizeLegibility;scrollbar-gutter:stable}
+body{min-width:20rem;min-height:100vh;margin:0;background:var(--bg);color:var(--text);line-height:1.5}
+button,input,select,textarea{font:inherit}
+button,a,select{touch-action:manipulation}
+a{color:inherit}
+svg{width:1.125rem;height:1.125rem;flex:none}
+.numeric,.money{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.chart-tooltip{padding:var(--space-3);border:var(--border-width) solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);box-shadow:var(--shadow-hover)}
+.chart-tooltip p{margin:0 0 var(--space-2);font-size:var(--font-xs)}
+.chart-tooltip div{display:flex;justify-content:space-between;gap:var(--space-4);font-size:var(--font-xs)}
+::placeholder{color:var(--text-muted);opacity:.8}
+:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto;animation-duration:.01ms;animation-iteration-count:1;transition-duration:.01ms}}

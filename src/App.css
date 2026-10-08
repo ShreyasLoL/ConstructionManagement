@@ -1,76 +1,47 @@
-:root {
-  /* Page background: Very light gray/blue */
-  --bg: #F0F4F8;
-  
-  /* White cards */
-  --surface: #FFFFFF;
-  --surface-2: #E2E8F0;
-  
-  /* Borders and text for contrast */
-  --border: #CBD5E1;
-  --text: #0F172A;
-  --text-muted: #475569;
-  
-  /* Construction Management Theme Colors */
-  --primary: #1E3A8A; /* Navy blue */
-  --accent: #F97316; /* Orange */
-}
-
-[data-theme="dark"] {
-  --bg: #0F172A;
-  --surface: #1E293B;
-  --surface-2: #334155;
-  --border: #475569;
-  --text: #F8FAFC;
-  --text-muted: #94A3B8;
-  --primary: #3B82F6;
-  --accent: #FB923C;
-}
-
-/* 
-  Override elements to use Navy Blue (Primary) 
-*/
-.button-primary {
-  background: var(--primary) !important;
-  color: #FFFFFF !important;
-}
-
-.brand-mark {
-  background: var(--primary) !important;
-  color: #FFFFFF !important;
-}
-
-.sidebar-link.active::before {
-  background: var(--primary) !important;
-}
-
-.project-tabs button.selected {
-  border-bottom-color: var(--primary) !important;
-}
-
-.legend-spent {
-  background: var(--primary) !important;
-}
-
-/* 
-  Override elements to use Orange (Accent) 
-*/
-.progress-bar::-webkit-progress-value {
-  background: var(--accent) !important;
-}
-
-.progress-bar::-moz-progress-bar {
-  background: var(--accent) !important;
-}
-
-.legend-budget {
-  background: var(--accent) !important;
-}
-
-.data-table-clickable:focus-visible {
-  outline-color: var(--accent) !important;
-}
-
-.projects-page .project-table-name a:hover {
-  text-decoration-color: var(--accent) !important;
-}
+/* Blueprint navy, aged brass, and warm paper shared across the application. */
+::selection{background:var(--accent-soft);color:var(--text)}
+button,input,select,textarea{accent-color:var(--accent)}
+button{color:inherit}
+button:disabled{cursor:not-allowed}
+.sidebar{background:var(--sidebar-bg)}
+.brand-mark{background:var(--accent);color:var(--accent-ink)}
+.sidebar-link.active::before{background:var(--brass)}
+.sidebar-link.active{color:var(--text)}
+.topbar{background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(12px)}
+.page-content{padding:var(--space-6)}
+.button-primary{background:var(--accent);color:var(--accent-ink)}
+.button-primary:hover{background:color-mix(in srgb,var(--accent) 88%,var(--text));box-shadow:var(--shadow-sm);transform:translateY(-1px)}
+.button-secondary{background:var(--surface);border-color:var(--border)}
+.button-quiet:hover,.button-secondary:hover{background:var(--surface-2)}
+.card,.data-table-scroll,.dashboard-project-list{box-shadow:var(--shadow-sm)}
+.progress-bar::-webkit-progress-value,.progress-bar::-moz-progress-bar{background:var(--accent)}
+.legend-budget{background:var(--chart-budget)}
+.legend-spent{background:var(--accent)}
+.project-tabs button.selected{border-bottom-color:var(--brass)}
+.projects-page .project-table-name a:hover{text-decoration-color:var(--brass)}
+.data-table-clickable:focus-visible{outline-color:var(--brass)}
+:where(input,select,textarea):focus-visible{outline:var(--focus-width) solid var(--brass);outline-offset:2px}
+.button{transition:background .18s,border-color .18s,color .18s,box-shadow .18s,transform .18s}
+.icon-button{transition:background .18s,border-color .18s,color .18s,transform .22s}
+.icon-button:hover{transform:translateY(-1px)}
+.icon-button:active,.button:active{transform:translateY(1px) scale(.98)}
+.topbar-avatar{transition:border-color .2s,box-shadow .2s}
+.topbar-avatar:hover{border-color:var(--brass);box-shadow:0 0 0 3px var(--brass-soft)}
+.theme-toggle svg{animation:theme-turn .26s ease-out both}
+.page-content> :not(.page-skeleton){animation:page-enter .28s ease-out both}
+.record-modal,.worker-detail-dialog{animation:modal-enter .2s cubic-bezier(.2,.75,.25,1) both}
+.data-table tbody tr{transition:background-color .16s ease}
+.data-table tbody tr:hover{background:color-mix(in srgb,var(--brass-soft) 52%,var(--surface))}
+.dashboard-project-row{transition:background .16s ease,padding .16s ease}
+.dashboard-project-row:hover{padding-inline-start:calc(var(--space-4) + 2px)}
+.worker-note-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}
+.worker-note-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.attention-item svg:first-child{transition:transform .18s ease}
+.attention-item:hover svg:first-child{transform:translateX(2px)}
+.chart-tooltip{animation:tooltip-enter .14s ease-out both}
+@keyframes page-enter{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes tooltip-enter{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+@keyframes modal-enter{from{opacity:0;transform:translateY(6px) scale(.995)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes theme-turn{from{opacity:.55;transform:rotate(-28deg) scale(.85)}to{opacity:1;transform:rotate(0) scale(1)}}
+@media(max-width:40rem){.page-content{padding:var(--space-4)}}
+@media(prefers-reduced-motion:reduce){.page-content> :not(.page-skeleton){animation:none}.worker-note-card:hover{transform:none}}
