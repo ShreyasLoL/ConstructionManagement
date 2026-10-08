@@ -10,7 +10,6 @@ const router = createBrowserRouter([
     { path: 'projects', lazy: async () => ({ Component: (await import('./pages/Projects/Projects.jsx')).default }) },
     { path: 'projects/:id', lazy: async () => ({ Component: (await import('./pages/ProjectDetail/ProjectDetail.jsx')).default }) },
     { path: 'workers', lazy: async () => ({ Component: (await import('./pages/Workers/Workers.jsx')).default }) },
-    { path: 'workers/:id', lazy: async () => ({ Component: (await import('./pages/Workers/WorkerDetail.jsx')).default }) },
     { path: 'materials', lazy: async () => ({ Component: (await import('./pages/Materials/Materials.jsx')).default }) },
     { path: 'costs', lazy: async () => ({ Component: (await import('./pages/Costs/Costs.jsx')).default }) },
     { path: 'schedule', lazy: async () => ({ Component: (await import('./pages/Schedule/Schedule.jsx')).default }) },
