@@ -10,7 +10,8 @@ export default function Topbar({ onMenu }) {
   const { data } = useAppData()
   const [root, id] = pathname.split('/').filter(Boolean)
   const project = root === 'projects' && id ? data.projects.find((item) => String(item.id) === id) : null
-  const title = project?.name || routeTitles[root] || (root === 'projects' ? 'Project not found' : 'Page not found')
+  const worker = root === 'workers' && id ? data.workers.find((item) => String(item.id) === id) : null
+  const title = project?.name || worker?.name || routeTitles[root] || (root === 'projects' ? 'Project not found' : 'Page not found')
   const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || localStorage.getItem('buildtrack-theme') || 'light')
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark'

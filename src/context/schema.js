@@ -4,7 +4,7 @@ const days = (n) => new Date(Date.now() + n * 86400000).toISOString().slice(0, 1
 export const todayISO = today
 export const fieldDefs = {
   projects: [['name', 'Project name'], ['client', 'Client name'], ['location', 'Location'], ['start', 'Start date', 'date'], ['end', 'End date', 'date'], ['budget', 'Budget (₹)', 'number'], ['status', 'Status', 'select', ['Planning', 'In Progress', 'On Hold', 'Completed']], ['progress', 'Progress (%)', 'number'], ['manager', 'Project manager']],
-  workers: [['name', 'Full name'], ['role', 'Role', 'select', ['Engineer', 'Supervisor', 'Mason', 'Electrician', 'Plumber', 'Carpenter', 'Laborer']], ['phone', 'Phone number'], ['project', 'Project', 'select', 'projects'], ['status', 'Status', 'select', ['On site', 'On leave']], ['wage', 'Daily wage (₹)', 'number']],
+  workers: [['name', 'Full name'], ['employee_id', 'Employee ID'], ['age', 'Age', 'number'], ['experience', 'Experience (years)', 'number'], ['role', 'Department / role', 'select', ['Site Supervisor', 'Civil Engineer', 'Engineer', 'Supervisor', 'Mason', 'Electrician', 'Plumber', 'Carpenter', 'Laborer']], ['salary', 'Monthly salary (₹)', 'number'], ['join_date', 'Join date', 'date'], ['phone', 'Phone number'], ['project', 'Project', 'select', 'projects'], ['status', 'Status', 'select', ['On site', 'On leave']], ['wage', 'Daily wage (₹)', 'number'], ['notes', 'Notes', 'textarea', null, false]],
   materials: [['name', 'Material name'], ['category', 'Category', 'select', ['Cement', 'Steel', 'Aggregates', 'Masonry', 'Electrical', 'Plumbing', 'Other']], ['quantity', 'Quantity', 'number'], ['unit', 'Unit'], ['threshold', 'Low stock alert at', 'number'], ['cost', 'Cost per unit (₹)', 'number'], ['supplier', 'Supplier'], ['project', 'Project', 'select', 'projects']],
   expenses: [['title', 'Expense description'], ['category', 'Category', 'select', ['Materials', 'Labour', 'Equipment', 'Transportation', 'Other']], ['amount', 'Amount (₹)', 'number'], ['date', 'Date', 'date'], ['project', 'Project', 'select', 'projects'], ['notes', 'Notes', 'text', null, false]],
   tasks: [['title', 'Task name'], ['project', 'Project', 'select', 'projects'], ['assignee', 'Assign worker', 'select', 'workers'], ['start', 'Start date', 'date'], ['due', 'Due date', 'date'], ['status', 'Status', 'select', ['Pending', 'In Progress', 'Completed']], ['priority', 'Priority', 'select', ['High', 'Medium', 'Low']]],
@@ -20,13 +20,13 @@ export const initialData = {
     { id: 6, name: 'Eastside Water Works', client: 'Municipal Works Dept.', location: 'Pune, Maharashtra', start: '2025-09-12', end: days(76), budget: 5600000, status: 'On Hold', progress: 31, manager: 'Rohan Shah' },
   ],
   workers: [
-    { id: 1, name: 'Vikram Singh', role: 'Site Supervisor', phone: '+91 98765 43210', project: 'Riverside Residences', status: 'On site', wage: 1800 },
-    { id: 2, name: 'Neha Kulkarni', role: 'Civil Engineer', phone: '+91 98234 56781', project: 'Greenfield Office Park', status: 'On site', wage: 2400 },
-    { id: 3, name: 'Ramesh Patil', role: 'Mason', phone: '+91 97654 32109', project: 'Oakwood Community Center', status: 'On site', wage: 950 },
-    { id: 4, name: 'Imran Khan', role: 'Electrician', phone: '+91 98901 23456', project: 'Riverside Residences', status: 'On leave', wage: 1250 },
-    { id: 5, name: 'Sanjay Rao', role: 'Carpenter', phone: '+91 98123 45670', project: 'Greenfield Office Park', status: 'On site', wage: 1100 },
-    { id: 6, name: 'Deepak Yadav', role: 'Laborer', phone: '+91 97412 34567', project: 'Oakwood Community Center', status: 'On site', wage: 700 },
-    { id: 7, name: 'Anita Deshmukh', role: 'Plumber', phone: '+91 98876 54321', project: 'Riverside Residences', status: 'On site', wage: 1150 },
+    { id: 1, employee_id: 'BT-W-001', age: '', experience: '', salary: '', join_date: '', notes: '', name: 'Vikram Singh', role: 'Site Supervisor', phone: '+91 98765 43210', project: 'Riverside Residences', status: 'On site', wage: 1800 },
+    { id: 2, employee_id: 'BT-W-002', age: '', experience: '', salary: '', join_date: '', notes: '', name: 'Neha Kulkarni', role: 'Civil Engineer', phone: '+91 98234 56781', project: 'Greenfield Office Park', status: 'On site', wage: 2400 },
+    { id: 3, employee_id: 'BT-W-003', age: '', experience: '', salary: '', join_date: '', notes: '', name: 'Ramesh Patil', role: 'Mason', phone: '+91 97654 32109', project: 'Oakwood Community Center', status: 'On site', wage: 950 },
+    { id: 4, employee_id: 'BT-W-004', age: '', experience: '', salary: '', join_date: '', notes: '', name: 'Imran Khan', role: 'Electrician', phone: '+91 98901 23456', project: 'Riverside Residences', status: 'On leave', wage: 1250 },
+    { id: 5, employee_id: 'BT-W-005', age: '', experience: '', salary: '', join_date: '', notes: '', name: 'Sanjay Rao', role: 'Carpenter', phone: '+91 98123 45670', project: 'Greenfield Office Park', status: 'On site', wage: 1100 },
+    { id: 6, employee_id: 'BT-W-006', age: '', experience: '', salary: '', join_date: '', notes: '', name: 'Deepak Yadav', role: 'Laborer', phone: '+91 97412 34567', project: 'Oakwood Community Center', status: 'On site', wage: 700 },
+    { id: 7, employee_id: 'BT-W-007', age: '', experience: '', salary: '', join_date: '', notes: '', name: 'Anita Deshmukh', role: 'Plumber', phone: '+91 98876 54321', project: 'Riverside Residences', status: 'On site', wage: 1150 },
   ],
   materials: [
     { id: 1, name: 'OPC Cement (Grade 53)', category: 'Cement', quantity: 42, unit: 'bags', threshold: 50, cost: 390, supplier: 'BuildRight Supplies', project: 'Riverside Residences' },
